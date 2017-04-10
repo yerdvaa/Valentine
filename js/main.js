@@ -1,7 +1,12 @@
 "use strict";
 
+
+
 $(function(){
-    $(".dropdown-button").dropdown();
+	//dropdown menu de la navbar
+    	$(".dropdown-button").dropdown();
+
+    	
 });
 
 

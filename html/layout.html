@@ -29,31 +29,32 @@ Elles s'adressent aux petits comme aux grands et esp�rent contribuer � un mo
     </head>
     <body> 
         <header>
-            <div class="background col l6">
-              <a href="#" class="grey-text text-lighten-3">Chez Valentine</a>
-            </div>
-            <!-- Dropdown Structure -->
-            <ul id="dropdown" class="dropdown-content">              
-              <li><a href="#!" class="pink-text text-lighten-2">Cuisine et Service de table</a></li>
-              <li><a href="#!" class="pink-text text-lighten-2">Echarpes</a></li>
-              <li><a href="#!" class="pink-text text-lighten-2">Jeux, jouets</a></li>
-              <li><a href="#!" class="pink-text text-lighten-2">Mode filles</a></li>
-              <li><a href="#!" class="pink-text text-lighten-2">Sacs et pochettes</a></li>
-              <li><a href="#!" class="pink-text text-lighten-2">Soin et bien-être</a></li>
-              <li><a href="#!" class="pink-text text-lighten-2">En rupture</a></li>
+
+        <!-- Dropdown Structure -->
+            <ul id="dropdown" class="dropdown-content">
+
+              <?php foreach($liste_categories as $categories): ?>           
+                <li><a href="produits.php?Id=<?= intval($categories['id']);?>" class="pink-text text-lighten-2"><?= htmlspecialchars($categories['nom_cat']); ?></a></li>
+              <?php endforeach; ?>  
+
             </ul>
             <div class="navbar-fixed"> 
             <nav>
                 <div class="nav-wrapper">
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="accueil.html">Accueil</a></li>
-                        <li><a href="#" class="dropdown-button" href="#!" data-activates="dropdown">Produits <i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="https://www.alittlemarket.com/boutique/chez_valentine-2904007.html" target="_blank">Boutique</a></li>
+                        <li class="hoverable"><a href="accueil.html">Accueil</a></li>
+                        <li class="hoverable"><a href="#" class="dropdown-button" href="#!" data-activates="dropdown">Produits <i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li class="hoverable"><a href="#">Contact</a></li>
+                        <li class="hoverable"><a href="https://www.alittlemarket.com/boutique/chez_valentine-2904007.html" target="_blank">Boutique</a></li>
                     </ul>
                 </div>
             </nav>
             </div>
+            <div class="background col l6">
+              <a href="login.php" class="grey-text text-lighten-3">Chez Valentine</a>
+            </div>
+            
+            
         </header>
 
         <main>
@@ -62,7 +63,7 @@ Elles s'adressent aux petits comme aux grands et esp�rent contribuer � un mo
 
         <footer class="page-footer">
           <div class="container">
-            <div class="icone">
+            <div id="icone" class="center">
                   <a class="grey-text text-lighten-3" href="#!"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                   <a class="grey-text text-lighten-3" href="#!"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
             </div>

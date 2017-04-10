@@ -1,0 +1,12 @@
+<section class="container" id="produits">
+
+	<?php foreach($liste_produits as $produits): ?>
+		<article>
+			<h5><?= htmlspecialchars($produits['nom']); ?></h5>
+			<p>Description: <?= htmlspecialchars($produits['description']); ?></p>
+			<img src="img/produits/<?= htmlspecialchars($produits['img1']); ?>" alt="<?= htmlspecialchars($produits['nom']); ?>">
+			<p class="center"><span>Prix: <?= htmlspecialchars($produits['prix']); ?></span></p>
+		</article>
+	<?php endforeach; ?>
+
+</section>

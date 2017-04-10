@@ -1,6 +1,17 @@
 <?php
+include 'bdd_connexion.php';
 
-$template = 'accueil.html';
+$template = 'html/accueil.html';
 
+//sélection des catégories dans la navbar
+	$categories = '
+					SELECT *
+					FROM categories
+				  ';
 
-include 'index.html';
+	$query = $pdo->prepare($categories);
+	$query->execute();
+
+	$liste_categories = $query->fetchAll();
+
+include 'html/layout.html';
