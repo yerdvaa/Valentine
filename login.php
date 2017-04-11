@@ -3,35 +3,47 @@ include 'bdd_connexion.php';
 
 $template = 'html/login.html';
 
-$user = $_POST['pseudo'];
-$pwd  = $_POST['password'];
 
-//recherche dans la bdd si l'user exist et si le mdp est correct
-	$login = '
-				SELECT *
-				FROM users
-				WHERE pseudo = ?
-				AND password = ?
-			 ';
-
-	$query = $pdo->prepare($login);
-	$query->execute([$user, $pwd]);
-
-	$loginInBdd = $query->fetch();
-
-	if(!$loginInBdd)
+	if(empty($_POST['pseudo']) == false)
 	{
-		var_dump('raté !!!');
+		//récupération du pseudo et password
+		$user = $_POST['pseudo'];
+		$pwd  = $_POST['password'];
+
+		//recherche dans la bdd si l'user exist et si le mdp est correct
+
+		$login = '
+					SELECT *
+					FROM users
+					WHERE pseudo = ?
+					AND password = ?
+				';
+
+				$query = $pdo->prepare($login);
+				$query->execute([$user, $pwd]);
+
+				$loginInBdd = $query->fetch();
+
+		if($loginInBdd == false)
+		{
+			echo '<p><strong>Login ou mot de passe incorrect !</strong></p>';
+		}
+		else
+		{
+			echo 'Vous êtes connecté !';
+
+				header('Location: admin.php');
+			    exit();
+		}
+		/* 
+				session_start();
+				$_SESSION['id'] = $loginInBdd['id'];
+				$_SESSION['pseudo'] = $loginInBdd['pseudo'];
+		*/
+			    
 	}
-	else
-	{
-		session_start();
 
-	    $_SESSION['id'] = $resultat['id'];
+	
 
-	    $_SESSION['pseudo'] = $pseudo;
-
-	    echo 'Vous êtes connecté !';
-	}
 
 include 'html/layout.html';
