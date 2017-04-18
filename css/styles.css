@@ -117,6 +117,19 @@
      box-shadow: 0 1px 0 0 #c2185b;
   }
 
+  #login .valid {
+    border-bottom: 1px solid #aa00ff;
+  }
+
+  #login button {
+    font-size: 1rem;
+    background-color: #ee6e73;
+  }
+
+  #login button:hover {
+    background-color: #ab47bc;
+  }
+
 /*footer*/
   footer {
     padding: 5px;

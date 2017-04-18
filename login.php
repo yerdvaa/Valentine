@@ -24,16 +24,15 @@ $template = 'html/login.html';
 
 				$loginInBdd = $query->fetch();
 
-		if($loginInBdd == false)
+		/*if($loginInBdd == false)
 		{
-			echo '<p><strong>Login ou mot de passe incorrect !</strong></p>';
+			echo '<main><p><strong>Login ou mot de passe incorrect !</strong></p></main>';
 		}
-		else
+		else*/
+		if($loginInBdd == true)
 		{
-			echo 'Vous êtes connecté !';
-
-				header('Location: admin.php');
-			    exit();
+			header('Location: admin.php');
+			exit();
 		}
 		/* 
 				session_start();
