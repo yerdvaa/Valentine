@@ -1,5 +1,5 @@
 <?php
-include 'bdd_connexion.php';
+include 'src/bdd_connexion.php';
 
 $template = 'html/login.html';
 
